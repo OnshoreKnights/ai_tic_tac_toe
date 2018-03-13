@@ -33,6 +33,13 @@ namespace tic_tac_toe
             }
         }
 
+        private Board(int[] _board, bool _isOTurn)
+        {
+            this._board = new int[9];
+            Array.Copy(_board, this._board, _board.Length);
+            this._isOTurn = _isOTurn;
+        }
+
         public IEnumerable<int> GetLegalMoves()
         {
             return Enumerable.Range(0, _board.Length).Where(i => _board[i] == EMPTY);
@@ -78,6 +85,11 @@ namespace tic_tac_toe
                 return EMPTY;
             }
             return -1;
+        }
+
+        public Board Copy()
+        {
+            return new Board(_board, _isOTurn);
         }
 
         public void Move(int move)
