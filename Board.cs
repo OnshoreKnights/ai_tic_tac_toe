@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace tic_tac_toe
 {
-    class Board
+    public class Board
     {
         private readonly int[][] idxWins = new int[][] {
             new int[] { 0, 1, 2 },

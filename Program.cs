@@ -9,16 +9,14 @@ namespace tic_tac_toe
         {
             var rng = new Random();
             var board = new Board();
-            var playerOne = new SimpleAgent();
-            var playerTwo = new SimpleAgent();
+            var playerOne = new PersonAgent();
+            var playerTwo = new MiniMaxAgent(Board.O);
             while (!board.IsGameOver())
             {
-                board.Print();
                 board.Move(playerOne.GetNextMove(board));
 
                 if (board.IsGameOver()) break;
-                
-                board.Print();
+
                 board.Move(playerTwo.GetNextMove(board));
             }
             if (board.GetWinner() == Board.X)

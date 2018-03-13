@@ -11,7 +11,7 @@ namespace tic_tac_toe
             board.Print(true);
             System.Console.WriteLine("Legal Moves: { " + string.Join(", ", board.GetLegalMoves().Select(i => i + 1)) + " }");
             int move = -1;
-            while (!board.GetLegalMoves().Contains(move))
+            while (!board.GetLegalMoves().Contains(move - 1))
             {
                 System.Console.WriteLine("Type your move and press enter: ");
                 if (!int.TryParse(Console.ReadLine(), out move))
@@ -19,7 +19,7 @@ namespace tic_tac_toe
                     System.Console.WriteLine("INVALID");
                 }
             }
-            return move;
+            return move - 1;
         }
     }
 }
