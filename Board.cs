@@ -113,7 +113,7 @@ namespace tic_tac_toe
             }
         }
 
-        public void Print()
+        public void Print(bool printNums = false)
         {
             System.Console.WriteLine();
             for (int i = 0; i < _board.Length; i++)
@@ -129,7 +129,14 @@ namespace tic_tac_toe
                 }
                 if (_board[i] == EMPTY)
                 {
-                    Console.Write(' ');
+                    if (printNums)
+                    {
+                        Console.Write(i + 1);
+                    }
+                    else
+                    {
+                        Console.Write(' ');
+                    }
                 }
                 else if (_board[i] == X)
                 {
