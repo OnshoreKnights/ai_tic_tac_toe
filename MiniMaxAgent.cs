@@ -15,7 +15,8 @@ namespace tic_tac_toe
             float maxUtility = float.MinValue;
             foreach (int action in /* TODO */)
             {
-                if (MinValue(Transition(board, action)) > maxUtility)
+                float utility = MinValue(Transition(board, action));
+                if (utility > maxUtility)
                 {
                     /* TODO */
                 }
@@ -34,7 +35,7 @@ namespace tic_tac_toe
             {
                 return GetPoints(board);
             }
-            float minUtility = float.MinValue;
+            float minUtility = float.MaxValue;
             foreach(int action in board.GetLegalMoves())
             {
                 minUtility = Math.Min(minUtility, MaxValue(Transition(board, action)));
@@ -57,6 +58,7 @@ namespace tic_tac_toe
 
         public Board Transition(Board board, int move)
         {
+            var newBoard = board.Copy();
             /* TODO */
         }
     }
